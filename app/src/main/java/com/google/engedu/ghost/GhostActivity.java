@@ -135,16 +135,12 @@ public class GhostActivity extends AppCompatActivity implements View.OnClickList
     private void computerTurn() {
         gameStatus.setText(COMPUTER_TURN);
         // Do computer turn stuff then make it the user's turn again
-
-
-
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 computerWord = dictionary.getGoodWordStartingWith(wordFragment,whoEndFirst);
-                Log.d("test", "computerWord: "+computerWord);
-                Log.d("test", "computerWordNew: "+computerWordNew);
+                System.out.println(computerWord);
                 if(computerWord == "noWord"){
                     createToast("Computer Wins! No such Word",1000);
                     onStart(null);
@@ -157,6 +153,7 @@ public class GhostActivity extends AppCompatActivity implements View.OnClickList
                     if(wordFragment.equals("")){
                         wordFragment = computerWord.substring(0,1);
                     }else{
+                        System.out.println(computerWord);
                         wordFragment = computerWord.substring(0,wordFragment.length()+1);
                     }
                     ghostText.setText(wordFragment);
@@ -183,12 +180,14 @@ public class GhostActivity extends AppCompatActivity implements View.OnClickList
                         onStart(null);
                     }
                     else{
-                        createToast("Computer Wins! Word Exist",1000);
+                        System.out.println(yourWord);
+                        createToast("Computer Wins! Word Exist \n"+yourWord,1500);
                         onStart(null);
                     }
                 }
                 else{
                     createToast("Computer Wins! \nWord is Still Less then 4 Character",1000);
+                    onStart(null);
                 }
                 break;
             case R.id.resetButton:

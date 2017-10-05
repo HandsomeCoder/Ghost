@@ -27,11 +27,11 @@ public class FastDictionary implements GhostDictionary {
 
     @Override
     public String getAnyWordStartingWith(String prefix) {
-        return null;
+        return root.getAnyWordStartingWith(prefix);
     }
 
     @Override
     public String getGoodWordStartingWith(String prefix, int whoEndFirst) {
-        return null;
+        return root.getGoodWordStartingWith(prefix);
     }
 }

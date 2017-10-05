@@ -100,6 +100,9 @@ public class SimpleDictionary implements GhostDictionary {
             shortListedWord.add(possibleWord);
             while(true){
                 upIndex++;
+                if(upIndex == words.size()){
+                    break;
+                }
                 checkWord = words.get(upIndex);
                 t = checkWord.startsWith(prefix)? 0 : prefix.compareTo(checkWord);
                 if(t != 0){
@@ -111,6 +114,9 @@ public class SimpleDictionary implements GhostDictionary {
             }
             while(true){
                 downIndex--;
+                if(downIndex < 0){
+                    break;
+                }
                 checkWord = words.get(downIndex);
                 t = checkWord.startsWith(prefix)? 0 : prefix.compareTo(checkWord);
                 if(t != 0){
